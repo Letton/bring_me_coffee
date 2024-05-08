@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.letton.api.services.UserService;
 
 @RestController
-@RequestMapping("/example")
+@RequestMapping("/api/v1/example")
 @RequiredArgsConstructor
 public class ExampleController {
     private final UserService service;

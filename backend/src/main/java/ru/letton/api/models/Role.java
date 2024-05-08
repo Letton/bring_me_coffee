@@ -1,4 +1,4 @@
-package ru.letton.api.domain.models;
+package ru.letton.api.models;
 
 public enum Role {
     ROLE_USER,

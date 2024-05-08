@@ -5,7 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.letton.api.domain.models.User;
+import ru.letton.api.models.User;
 import ru.letton.api.exceptions.BadRequestException;
 import ru.letton.api.repositories.UserRepository;
 
@@ -20,7 +20,7 @@ public class UserService {
 
     public void create(User user) {
         if (repository.existsByUsername(user.getUsername())) {
-            throw new BadRequestException("Пользователь с таким именем уже существует");
+            throw new BadRequestException("Пользователь с таким username уже существует");
         }
 
         if (repository.existsByEmail(user.getEmail())) {

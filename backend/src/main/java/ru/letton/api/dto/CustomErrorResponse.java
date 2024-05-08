@@ -1,4 +1,4 @@
-package ru.letton.api.util;
+package ru.letton.api.dto;
 
 
 import lombok.AllArgsConstructor;

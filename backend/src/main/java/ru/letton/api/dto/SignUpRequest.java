@@ -1,4 +1,4 @@
-package ru.letton.api.domain.dto;
+package ru.letton.api.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

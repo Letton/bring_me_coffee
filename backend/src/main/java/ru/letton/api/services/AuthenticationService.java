@@ -5,11 +5,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.letton.api.domain.dto.JwtAuthenticationResponse;
-import ru.letton.api.domain.dto.SignInRequest;
-import ru.letton.api.domain.dto.SignUpRequest;
-import ru.letton.api.domain.models.Role;
-import ru.letton.api.domain.models.User;
+import ru.letton.api.dto.JwtAuthenticationResponse;
+import ru.letton.api.dto.SignInRequest;
+import ru.letton.api.dto.SignUpRequest;
+import ru.letton.api.models.Role;
+import ru.letton.api.models.User;
 import ru.letton.api.repositories.UserRepository;
 
 @Service

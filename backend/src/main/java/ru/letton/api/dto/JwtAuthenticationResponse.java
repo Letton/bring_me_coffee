@@ -1,4 +1,4 @@
-package ru.letton.api.domain.dto;
+package ru.letton.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

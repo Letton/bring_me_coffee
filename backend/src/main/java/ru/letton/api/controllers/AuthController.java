@@ -7,15 +7,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import ru.letton.api.domain.dto.JwtAuthenticationResponse;
-import ru.letton.api.domain.dto.SignInRequest;
-import ru.letton.api.domain.dto.SignUpRequest;
+import ru.letton.api.dto.JwtAuthenticationResponse;
+import ru.letton.api.dto.SignInRequest;
+import ru.letton.api.dto.SignUpRequest;
 import ru.letton.api.exceptions.BadRequestException;
 import ru.letton.api.services.AuthenticationService;
-import ru.letton.api.util.CustomErrorResponse;
+import ru.letton.api.dto.CustomErrorResponse;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthenticationService authenticationService;
