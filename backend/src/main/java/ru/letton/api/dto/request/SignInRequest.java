@@ -1,4 +1,4 @@
-package ru.letton.api.dto;
+package ru.letton.api.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

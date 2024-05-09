@@ -3,6 +3,7 @@ package ru.letton.api.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,9 +25,15 @@ public class Product {
     @Column(name = "net_weight")
     private Integer net_weight;
 
+    @Column(name = "type")
+    private String type;
+
     @Column(name = "price", nullable = false)
     private Double price;
 
     @Column(name = "image")
     private String image;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<OrderProduct> orderProducts;
 }

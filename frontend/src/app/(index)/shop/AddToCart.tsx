@@ -1,22 +1,18 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import useAuth from "@/hooks/useAuth";
-import useCart from "@/hooks/useCart";
-import { ShoppingCart } from "lucide-react";
-import Link from "next/link";
 import { HTMLAttributes } from "react";
+import { useCart } from "react-use-cart";
 
 interface IAddToCart extends HTMLAttributes<HTMLButtonElement> {
   product: Product;
 }
 
 export default function AddToCart({ product, ...props }: IAddToCart) {
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   const addToCartHandler = () => {
-    addToCart({ ...product, count: 1 });
+    addItem(product, 1);
   };
 
   return <Button onClick={addToCartHandler}>Купить</Button>;

@@ -1,7 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import jwt from "jsonwebtoken";
 
-const useAuth = () => {
+interface AuthContextType {
+  accessToken: string | null;
+  user: User | null;
+  setAuth: (token: string) => void;
+  logout: () => void;
+}
+
+export const AuthContext = createContext<AuthContextType>(
+  {} as AuthContextType
+);
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
@@ -12,7 +23,10 @@ const useAuth = () => {
       const decodedToken: any = jwt.decode(token);
       const userData: User = {
         id: decodedToken.userId,
+        email: decodedToken.email,
         username: decodedToken.username,
+        firstname: decodedToken.firstname,
+        lastname: decodedToken.lastname,
         role: decodedToken.role,
       };
       setUser(userData);
@@ -25,6 +39,9 @@ const useAuth = () => {
     const decodedToken: any = jwt.decode(token);
     const userData: User = {
       id: decodedToken.userId,
+      email: decodedToken.email,
+      firstname: decodedToken.firstname,
+      lastname: decodedToken.lastname,
       username: decodedToken.username,
       role: decodedToken.role,
     };
@@ -37,7 +54,11 @@ const useAuth = () => {
     setUser(null);
   };
 
-  return { accessToken, user, setAuth, logout };
+  return (
+    <AuthContext.Provider value={{ accessToken, user, setAuth, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-export default useAuth;
+export const useAuth = () => useContext(AuthContext);

@@ -38,7 +38,7 @@ export default async function IndexPage() {
         </ul>
         <div className="mx-auto flex justify-center">
           <Button asChild className="font-bold">
-            <Link href="/app">
+            <Link href="/shop">
               <ShoppingBag className="mr-2" />
               Заказать сейчас
             </Link>

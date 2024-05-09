@@ -1,4 +1,4 @@
-package ru.letton.api.dto;
+package ru.letton.api.dto.response;
 
 
 import lombok.AllArgsConstructor;

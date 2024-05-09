@@ -2,14 +2,14 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import useAuth from "@/hooks/useAuth";
-import useCart from "@/hooks/useCart";
+import { useAuth } from "@/contexts/authContext";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import { useCart } from "react-use-cart";
 
 export default function Navbar() {
   const { user } = useAuth();
-  const { cart } = useCart();
+  const { totalUniqueItems } = useCart();
 
   return (
     <nav>
@@ -27,7 +27,7 @@ export default function Navbar() {
         {!user ? (
           <li>
             <Button asChild>
-              <Link href="/auth/signin">Вход</Link>
+              <Link href="/auth/sign-in">Вход</Link>
             </Button>
           </li>
         ) : (
@@ -40,7 +40,9 @@ export default function Navbar() {
             <li>
               <Link href="/account/cart" className="flex gap-2">
                 <ShoppingCart />{" "}
-                {cart.length > 0 ? <Badge>{cart.length}</Badge> : null}
+                {totalUniqueItems > 0 ? (
+                  <Badge>{totalUniqueItems}</Badge>
+                ) : null}
               </Link>
             </li>
           </>

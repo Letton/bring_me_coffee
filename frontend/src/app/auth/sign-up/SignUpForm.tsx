@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import useAuth from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
 import { signUpValidator } from "@/lib/validations/sign-up";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,6 +11,7 @@ import { HTMLAttributes, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/authContext";
 
 interface ISignUpForm extends HTMLAttributes<HTMLFormElement> {}
 

@@ -5,15 +5,17 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.letton.api.dto.JwtAuthenticationResponse;
-import ru.letton.api.dto.SignInRequest;
-import ru.letton.api.dto.SignUpRequest;
+import org.springframework.transaction.annotation.Transactional;
+import ru.letton.api.dto.response.JwtAuthenticationResponse;
+import ru.letton.api.dto.request.SignInRequest;
+import ru.letton.api.dto.request.SignUpRequest;
 import ru.letton.api.models.Role;
 import ru.letton.api.models.User;
 import ru.letton.api.repositories.UserRepository;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class AuthenticationService {
     private final UserService userService;
     private final UserRepository userRepository;

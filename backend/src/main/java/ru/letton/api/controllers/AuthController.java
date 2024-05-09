@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import ru.letton.api.dto.JwtAuthenticationResponse;
-import ru.letton.api.dto.SignInRequest;
-import ru.letton.api.dto.SignUpRequest;
+import ru.letton.api.dto.response.JwtAuthenticationResponse;
+import ru.letton.api.dto.request.SignInRequest;
+import ru.letton.api.dto.request.SignUpRequest;
 import ru.letton.api.exceptions.BadRequestException;
 import ru.letton.api.services.AuthenticationService;
-import ru.letton.api.dto.CustomErrorResponse;
+import ru.letton.api.dto.response.CustomErrorResponse;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -25,7 +25,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             StringBuilder errors = new StringBuilder();
             for (ObjectError error : bindingResult.getAllErrors()) {
-                errors.append(error.getDefaultMessage());
+                errors.append(error.getDefaultMessage()).append(";");
             }
             throw new BadRequestException(errors.toString());
         }
@@ -37,7 +37,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             StringBuilder errors = new StringBuilder();
             for (ObjectError error : bindingResult.getAllErrors()) {
-                errors.append(error.getDefaultMessage());
+                errors.append(error.getDefaultMessage()).append(";");
             }
             throw new BadRequestException(errors.toString());
         }

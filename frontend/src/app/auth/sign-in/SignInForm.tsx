@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import useAuth from "@/hooks/useAuth";
+import { useAuth } from "@/contexts/authContext";
 import { cn } from "@/lib/utils";
 import { signInValidator } from "@/lib/validations/sign-in";
 import { zodResolver } from "@hookform/resolvers/zod";
