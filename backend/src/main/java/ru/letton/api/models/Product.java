@@ -22,10 +22,10 @@ public class Product {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "net_weight")
+    @Column(name = "net_weight", nullable = false)
     private Integer net_weight;
 
-    @Column(name = "type")
+    @Column(name = "type", nullable = false)
     private String type;
 
     @Column(name = "price", nullable = false)

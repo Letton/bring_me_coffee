@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useCart } from "react-use-cart";
 
 export default function Navbar() {
-  const { user } = useAuth();
+  const { accessToken } = useAuth();
   const { totalUniqueItems } = useCart();
 
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
             <Link href="/shop">Меню</Link>
           </Button>
         </li>
-        {!user ? (
+        {!accessToken ? (
           <li>
             <Button asChild>
               <Link href="/auth/sign-in">Вход</Link>

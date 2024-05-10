@@ -1,7 +1,6 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -19,18 +17,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { toast } from "@/components/ui/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
-import { headers } from "next/headers";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useCart } from "react-use-cart";
-import useSWR from "swr";
 import { z } from "zod";
-import AddToCart from "../../shop/AddToCart";
-import { Separator } from "@/components/ui/separator";
 import { orderValidator } from "@/lib/validations/makeOrder";
 import { useAuth } from "@/contexts/authContext";
 import moment from "moment";
@@ -62,7 +51,7 @@ export default function OrdersPage() {
   }, [accessToken]);
 
   return (
-    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container">
+    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container py-10">
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Заказы</CardTitle>

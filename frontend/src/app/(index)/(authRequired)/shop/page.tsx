@@ -23,8 +23,10 @@ import { redirect } from "next/navigation";
 import axios from "axios";
 import useSWR from "swr";
 import { useAuth } from "@/contexts/authContext";
+import { useRouter } from "next/navigation";
 
 export default function ShopPage() {
+  const router = useRouter();
   const fetcher = (url: string) =>
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}${url}`)
@@ -32,14 +34,8 @@ export default function ShopPage() {
 
   const { data, isLoading, error } = useSWR<any[]>("/products", fetcher);
 
-  const { user } = useAuth();
-
-  if (!user) {
-    redirect("auth/sign-in");
-  }
-
   return (
-    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container">
+    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container py-10">
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Меню</CardTitle>

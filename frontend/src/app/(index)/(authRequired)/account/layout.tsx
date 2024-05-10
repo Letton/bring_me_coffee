@@ -16,12 +16,6 @@ export default function AccountLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { user } = useAuth();
-
-  if (!user) {
-    redirect("/auth/sign-in");
-  }
-
   return (
     <TooltipProvider>
       <section className="flex w-full flex-row h-full min-h-[calc(100svh-73px)]">
