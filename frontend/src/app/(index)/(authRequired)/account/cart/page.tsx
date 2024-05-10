@@ -92,7 +92,7 @@ export default function CartPage() {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container">
+    <section className="flex items-center justify-center min-h-[calc(100svh-73px)] mx-auto container py-10">
       <Card>
         <CardHeader>
           <CardTitle>Корзина</CardTitle>
